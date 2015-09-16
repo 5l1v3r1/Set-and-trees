@@ -185,8 +185,8 @@ inline void BinaryTree<T>::print_tree(const Node<T> *node, std::string prefix, b
 	std::cout << prefix + (is_tail ? "└── " : "├── ") + std::to_string(node->key_value()) 
 			  << " (" << std::to_string(node->key_count()) << ")" << std::endl;
 	
-	print_tree(node->right_leaf(), prefix + (is_tail ? "    " : "│   "), 	true);
-	print_tree(node->left_leaf(), prefix + (is_tail ? "    " : "│   "), false);
+	print_tree(node->right_leaf(), prefix + (is_tail ? "    " : "│   "), false);
+	print_tree(node->left_leaf(), prefix + (is_tail ? "    " : "│   "), true);
 }
 
 template <class T>

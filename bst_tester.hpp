@@ -4,6 +4,7 @@
 #include "binary_tree.hpp"
 #include <limits>
 #include <random>
+#include <chrono>
 
 class BSTTester
 {
@@ -16,6 +17,7 @@ class BSTTester
 		bool test_count_add() const;
 		bool test_count_sub() const;
 		void print_tree() const;
+		void print_random_tree() const;
 		
 	private:
 		template <class T> bool test_is_bst(const Node<T>*	, const T&, const T&) const;
@@ -142,4 +144,17 @@ bool BSTTester::test_count_sub() const
 	return bin_tree.search(4)->key_count() == 1;
 }
 
+
+void BSTTester::print_random_tree() const
+{
+	std::default_random_engine engine(std::chrono::high_resolution_clock::now().time_since_epoch().count());
+	std::uniform_int_distribution<> dist(1, 100);
+	
+	BinaryTree<int> tree;
+	
+	for(int i = 0; i < 100; i++)
+		tree.insert(dist(engine));
+	
+	tree.print_tree();
+}
 #endif

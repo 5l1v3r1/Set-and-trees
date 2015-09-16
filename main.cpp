@@ -19,6 +19,10 @@ int main(int argc, char* argv[])
 	cout << endl;
 	
 	test.print_tree();
+	
+	cout << endl;
+	
+	test.print_random_tree();
 		
 	return 0;
 }
